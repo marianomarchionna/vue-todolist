@@ -52,8 +52,17 @@ li {
     border-bottom: 1px solid lightgray;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
-
+/* 
 li i {
     cursor: pointer;
+} */
+
+.green {
+    color: green;
+}
+
+.red {
+    color:red;
 }

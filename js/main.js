@@ -10,20 +10,32 @@ const app = new Vue(
         data: {
             newToDo: "",
             toDos: [
-                'Fare i compiti',
-                'Fare la spesa',
-                'Fare il bucato'
+                {title : 'Fare la spesa', done : true},
+                {title : 'Fare il bucato', done : false},
+                {title : 'Pulire casa', done : false},
+                {title : 'Fare gli esercizi', done : true},
+                {title : 'Comprare aspirapolvere', done : false},
+                {title : 'Pulire macchina', done : true},
+                {title : 'Mettere in ordine', done : true},
+                {title : 'Pulire balcone', done : false}
             ]
         },
         methods: {
             addToDo(){
-                if(this.newToDo != ""){
-                    this.toDos.push(this.newToDo);
+                let newObject = {
+                    title : this.newToDo,
+                    done: false
+                };
+                if (this.newToDo != '') {
+                    this.toDos.push(newObject);
                     this.newToDo = "";
                 }
             },
-            removeToDo(index){
-                this.toDos.splice(index, 1);
+            // removeToDo(index){
+            //     this.toDos.splice(index, 1);
+            // },
+            toggleVisibility(i) {
+                this.toDos[i].done = !this.toDos[i].done;
             }
         }
     }

@@ -18,10 +18,19 @@
             <button @click="addToDo">Aggiungi</button>
         </div>
         <div class="list">
-            <ul v-if="toDos.length > 0">
-                <li v-for="toDo in toDos">
-                    {{ toDo }}
-                    <i class="fas fa-times" @click="removeToDo(index)"></i>
+            <ul v-if="toDos.length > 0" v-for="(toDo, index) in toDos">
+                <!-- <div>
+                    <i @click="toggleVisibility" v-if='playVisible' class="fas fa-play"></i>
+                    <i @click="toggleVisibility" v-else class="fas fa-pause"></i>
+                </div> -->
+                <li v-if='toDo.done' @click="toggleVisibility(index)" class="green">
+                    {{ toDo.title }}
+                    <i class="fas fa-check"></i>
+                </li>
+                <li v-else @click="toggleVisibility(index)" class="red">
+                    {{ toDo.title }}
+                    <i class="fas fa-times"></i>
+                    <!-- <i class="fas fa-times" @click="removeToDo(index)"></i> -->
                 </li>
             </ul>
             <h4 v-else>Non ci sono Todo</h4>
