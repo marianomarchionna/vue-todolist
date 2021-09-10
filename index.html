@@ -13,27 +13,30 @@
         <div class="logo">
             <img src="https://www.boolean.careers/images/misc/logo.png" alt="Logo Boolean">
         </div>
+        <!-- sezione di input -->
         <div class="new-todo">
             <input type="text" v-model="newToDo" placeholder="Nuovo Todo" @keyUp.enter="addToDo">
             <button @click="addToDo">Aggiungi</button>
         </div>
+        <!-- sezione della lista todo -->
         <div class="list">
-            <ul v-if="toDos.length > 0" v-for="(toDo, index) in toDos">
-                <!-- <div>
-                    <i @click="toggleVisibility" v-if='playVisible' class="fas fa-play"></i>
-                    <i @click="toggleVisibility" v-else class="fas fa-pause"></i>
-                </div> -->
-                <li v-if='toDo.done' @click="toggleVisibility(index)" class="green">
-                    {{ toDo.title }}
-                    <i class="fas fa-check"></i>
+            <h4 v-if="toDos.length == 0">Non ci sono Todo</h4>
+            <ul v-else v-for="(toDo, index) in toDos">
+                <li v-if='toDo.done' @mouseUp="toggleVisibility(index)">
+                    <div class="action">
+                        {{ toDo.title }}
+                        <i class="fas fa-check green"></i>
+                    </div>
+                    <i class="fas fa-trash-alt" @click="removeToDo(index)"></i>
                 </li>
-                <li v-else @click="toggleVisibility(index)" class="red">
-                    {{ toDo.title }}
-                    <i class="fas fa-times"></i>
-                    <!-- <i class="fas fa-times" @click="removeToDo(index)"></i> -->
+                <li v-else @mouseUp="toggleVisibility(index)">
+                    <div class="action">
+                        {{ toDo.title }}
+                        <i class="fas fa-times red"></i>
+                    </div>
+                    <i class="fas fa-trash-alt" @click="removeToDo(index)"></i>
                 </li>
             </ul>
-            <h4 v-else>Non ci sono Todo</h4>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

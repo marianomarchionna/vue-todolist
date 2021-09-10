@@ -31,9 +31,9 @@ const app = new Vue(
                     this.newToDo = "";
                 }
             },
-            // removeToDo(index){
-            //     this.toDos.splice(index, 1);
-            // },
+            removeToDo(index){
+                this.toDos.splice(index, 1);
+            },
             toggleVisibility(i) {
                 this.toDos[i].done = !this.toDos[i].done;
             }

@@ -54,10 +54,6 @@ li {
     justify-content: space-between;
     cursor: pointer;
 }
-/* 
-li i {
-    cursor: pointer;
-} */
 
 .green {
     color: green;
@@ -65,4 +61,8 @@ li i {
 
 .red {
     color:red;
+}
+
+.action {
+    font-weight: 600;
 }
